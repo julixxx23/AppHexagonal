@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategoriaRequest {
+public class CategoriaCreateRequest {
 
     @NotBlank(message = "El nombre es obligatorio")
     @Size(max =  100, message = "El nombre no puede superar 100 caracteres")

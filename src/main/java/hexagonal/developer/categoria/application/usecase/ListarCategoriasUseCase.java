@@ -1,7 +1,7 @@
 package hexagonal.developer.categoria.application.usecase;
 
 import hexagonal.developer.categoria.domain.model.Categoria;
-import hexagonal.developer.categoria.domain.model.PageDomain;
+import hexagonal.developer.shared.domain.model.PageDomain;
 import hexagonal.developer.categoria.domain.port.out.CategoriaRepositoryPort;
 import hexagonal.developer.categoria.domain.port.in.ListarCategoriasPort;
 import lombok.RequiredArgsConstructor;

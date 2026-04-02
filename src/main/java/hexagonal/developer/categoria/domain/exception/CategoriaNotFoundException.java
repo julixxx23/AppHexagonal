@@ -1,8 +1,11 @@
 package hexagonal.developer.categoria.domain.exception;
 
-public class CategoriaNotFoundException extends  RuntimeException{
+import hexagonal.developer.shared.domain.exception.NotFoundException;
 
-    public CategoriaNotFoundException(Long id){
+public class CategoriaNotFoundException extends NotFoundException {
+    public CategoriaNotFoundException(Long id) {
         super("Categoria no encontrada con id: " + id);
     }
+
+
 }

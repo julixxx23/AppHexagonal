@@ -1,7 +1,7 @@
 package hexagonal.developer.categoria.domain.port.out;
 
 import hexagonal.developer.categoria.domain.model.Categoria;
-import hexagonal.developer.categoria.domain.model.PageDomain;
+import hexagonal.developer.shared.domain.model.PageDomain;
 
 import java.util.Optional;
 
@@ -10,4 +10,6 @@ public interface CategoriaRepositoryPort {
     Optional<Categoria> buscarPorId(Long id);
     PageDomain<Categoria> listarTodas(int pagina, int tamanio);
     boolean existePorNombre(String nombre);
+    boolean existePorNombreExcluyendoId(String nombre, Long id);
+    void eliminar(Long id);
 }

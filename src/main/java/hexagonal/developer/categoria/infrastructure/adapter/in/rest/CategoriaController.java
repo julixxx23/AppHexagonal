@@ -1,16 +1,15 @@
 package hexagonal.developer.categoria.infrastructure.adapter.in.rest;
 
 import hexagonal.developer.categoria.domain.model.Categoria;
-import hexagonal.developer.categoria.domain.model.PageDomain;
+import hexagonal.developer.shared.domain.model.PageDomain;
 import hexagonal.developer.categoria.domain.port.in.BuscarCategoriaPort;
 import hexagonal.developer.categoria.domain.port.in.GuardarCategoriaPort;
 import hexagonal.developer.categoria.domain.port.in.ListarCategoriasPort;
-import hexagonal.developer.categoria.infrastructure.adapter.in.rest.dto.CategoriaRequest;
+import hexagonal.developer.categoria.infrastructure.adapter.in.rest.dto.CategoriaCreateRequest;
 import hexagonal.developer.categoria.infrastructure.adapter.in.rest.dto.CategoriaResponse;
 import hexagonal.developer.categoria.infrastructure.adapter.in.rest.mapper.CategoriaRestMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +25,7 @@ public class CategoriaController {
     private final CategoriaRestMapper mapper;
 
     @PostMapping
-    public ResponseEntity<CategoriaResponse> guardar(@Valid @RequestBody CategoriaRequest request) {
+    public ResponseEntity<CategoriaResponse> guardar(@Valid @RequestBody CategoriaCreateRequest request) {
         Categoria categoria = guardarCategoriaPort.guardar(mapper.toDomain(request));
         return ResponseEntity.status(HttpStatus.CREATED).body(mapper.toResponse(categoria));
     }

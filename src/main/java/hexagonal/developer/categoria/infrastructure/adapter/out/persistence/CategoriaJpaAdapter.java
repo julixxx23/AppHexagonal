@@ -1,14 +1,13 @@
 package hexagonal.developer.categoria.infrastructure.adapter.out.persistence;
 
 import hexagonal.developer.categoria.domain.model.Categoria;
-import hexagonal.developer.categoria.domain.model.PageDomain;
+import hexagonal.developer.shared.domain.model.PageDomain;
 import hexagonal.developer.categoria.domain.port.out.CategoriaRepositoryPort;
 import hexagonal.developer.categoria.infrastructure.adapter.out.persistence.mapper.CategoriaPersistenceMapper;
 import hexagonal.developer.categoria.infrastructure.adapter.out.persistence.repository.CategoriaJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.stereotype.Component;
 
 
 import java.util.Optional;
@@ -19,9 +18,24 @@ public class CategoriaJpaAdapter implements CategoriaRepositoryPort {
     private final CategoriaJpaRepository jpaRepository;
     private final CategoriaPersistenceMapper mapper;
 
+
+
+    @Override
+    public boolean existePorNombreExcluyendoId(String nombre, Long id) {
+        return jpaRepository.existsByNombreIgnoreCaseAndIdNot(nombre, id);
+
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        jpaRepository.deleteById(id);
+    }
+
     @Override
     public Categoria guardar(Categoria categoria) {
         return mapper.toDomain(jpaRepository.save(mapper.toEntity(categoria)));
+
+
     }
 
     @Override
