@@ -1,4 +1,4 @@
-package hexagonal.developer.categoria.domain.model;
+package hexagonal.developer.shared.domain.model;
 
 import java.util.List;
 
