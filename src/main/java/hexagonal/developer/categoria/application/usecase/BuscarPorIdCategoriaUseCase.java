@@ -3,11 +3,11 @@ package hexagonal.developer.categoria.application.usecase;
 import hexagonal.developer.categoria.domain.exception.CategoriaNotFoundException;
 import hexagonal.developer.categoria.domain.model.Categoria;
 import hexagonal.developer.categoria.domain.port.out.CategoriaRepositoryPort;
-import hexagonal.developer.categoria.domain.port.in.BuscarCategoriaPort;
+import hexagonal.developer.categoria.domain.port.in.BuscarPorIdCategoriaPort;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class BuscarCategoriaUseCase implements BuscarCategoriaPort {
+public class BuscarPorIdCategoriaUseCase implements BuscarPorIdCategoriaPort {
 
     private final CategoriaRepositoryPort categoriaRepositoryPort;
 

@@ -9,6 +9,8 @@ public interface CategoriaRepositoryPort {
     Categoria guardar(Categoria categoria);
     Optional<Categoria> buscarPorId(Long id);
     PageDomain<Categoria> listarTodas(int pagina, int tamanio);
+    PageDomain<Categoria> buscarPorTexto(String texto, int pagina, int tamanio);
+    Categoria actualizar(Long id, Categoria categoria);
     boolean existePorNombre(String nombre);
     boolean existePorNombreExcluyendoId(String nombre, Long id);
     void eliminar(Long id);
