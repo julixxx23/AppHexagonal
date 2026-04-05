@@ -12,6 +12,6 @@ public class ListarTodosUsuariosUseCase implements ListarTodosUsuariosPort {
 
     @Override
     public PageDomain<Usuario> listarTodos(int pagina, int tamanio){
-        return usuarioRepositoryPort.buscarPorTexto(pagina, tamanio);
+        return usuarioRepositoryPort.listarTodos(pagina, tamanio);
     }
 }
