@@ -7,8 +7,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface UsuarioJpaRepository extends JpaRepository<UsuarioEntity, Long> {
-    boolean existePorNombre(String nombre);
-    boolean existePorNombreExcluyendoId(String nombre, Long id);
-    Page<UsuarioEntity> findByNombreContainingIgnoreCase(String nombre, Pageable pageable);
+
+    Page<UsuarioEntity> findByNombreUsuarioContainingIgnoreCase(String nombre, Pageable pageable);
+
+    Optional<UsuarioEntity> findByUsuarioUsuario(String usuarioUsuario);
+
+    boolean existsByNombreUsuario(String nombreUsuario);
+
+    boolean existsByNombreUsuarioAndIdUsuarioNot(String nombreUsuario, Long idUsuario);
 }

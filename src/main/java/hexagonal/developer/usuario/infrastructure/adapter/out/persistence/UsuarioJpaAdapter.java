@@ -48,7 +48,7 @@ public class UsuarioJpaAdapter implements UsuarioRepositoryPort {
     @Override
     public PageDomain<Usuario> buscarPorTexto(String texto, int pagina, int tamanio){
         Page<UsuarioEntity> entityPage = usuarioJpaRepository
-                .findByNombreContainingIgnoreCase(texto, PageRequest.of(pagina, tamanio));
+                .findByNombreUsuarioContainingIgnoreCase(texto, PageRequest.of(pagina, tamanio));
         Page<Usuario> page = entityPage.map(mapper::toDomain);
         return new PageDomain<>(
                 page.getContent(),
@@ -64,13 +64,12 @@ public class UsuarioJpaAdapter implements UsuarioRepositoryPort {
 
     @Override
     public boolean existePorNombre(String nombre) {
-        return usuarioJpaRepository.existePorNombre(nombre);
+        return usuarioJpaRepository.existsByNombreUsuario(nombre);
     }
 
     @Override
     public boolean existePorNombreExcluyendoId(String nombre, Long id) {
-        return usuarioJpaRepository.existePorNombreExcluyendoId(nombre, id);
+        return usuarioJpaRepository.existsByNombreUsuarioAndIdUsuarioNot(nombre, id);
     }
-    
 
 }
