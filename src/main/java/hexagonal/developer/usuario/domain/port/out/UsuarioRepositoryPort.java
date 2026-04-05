@@ -8,8 +8,8 @@ import java.util.Optional;
 public interface UsuarioRepositoryPort {
     Usuario guardar(Usuario usuario);
     Usuario actualizar(Long id, Usuario usuario);
+    PageDomain<Usuario> listarTodos(int pagina, int tamanio);
     PageDomain<Usuario> buscarPorTexto(String texto, int pagina, int tamanio);
-    PageDomain<Usuario> buscarPorTexto(int pagina, int tamanio);
     Optional<Usuario>buscarPorId(Long id);
     void eliminar(Long id);
     boolean existePorNombre(String nombre);

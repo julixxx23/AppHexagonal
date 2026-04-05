@@ -1,4 +1,4 @@
-package hexagonal.developer.usuario.domain.model;
+package hexagonal.developer.usuario.infrastructure.adapter.in.rest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,18 +7,16 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-@Getter
 @Builder
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
-
+public class UsuarioResponse {
     private Long idUsuario;
     private String usuarioUsuario;
     private String nombreUsuario;
     private String apellidoUsuario;
-    private String contrasenaHash;
     private String rolUsuario;
     private Boolean usuarioEstado;
-    private LocalDateTime auditoriasFechaCreacion;
+    private LocalDateTime auditoriaFechaCreacion;
 }

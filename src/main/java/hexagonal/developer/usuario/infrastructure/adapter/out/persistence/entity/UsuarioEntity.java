@@ -1,5 +1,6 @@
 package hexagonal.developer.usuario.infrastructure.adapter.out.persistence.entity;
 
+import hexagonal.developer.usuario.domain.model.RolesUsuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
+public class UsuarioEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,8 +35,8 @@ public class Usuario {
     private String contrasenaHash;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "rol_usuario")
-    private String rolUsuario;
+    @Column(name = "rol_usuario", nullable = false, length = 10)
+    private RolesUsuario rolUsuario;
 
     @Column(name = "usuario_estado")
     private Boolean usuarioEstado;
