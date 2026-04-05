@@ -3,11 +3,21 @@ package hexagonal.developer.producto.infrastructure.config;
 import hexagonal.developer.producto.application.usecase.*;
 import hexagonal.developer.producto.domain.port.in.*;
 import hexagonal.developer.producto.domain.port.out.ProductoRepositoryPort;
+import hexagonal.developer.producto.infrastructure.adapter.out.persistence.ProductoJpaAdapter;
+import hexagonal.developer.producto.infrastructure.adapter.out.persistence.mapper.ProductoPersistenceMapper;
+import hexagonal.developer.producto.infrastructure.adapter.out.persistence.repository.ProductoJpaRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ProductoBeanConfig {
+
+    @Bean
+    public ProductoRepositoryPort productoRepositoryPort(
+            ProductoJpaRepository jpaRepository,
+            ProductoPersistenceMapper mapper) {
+        return new ProductoJpaAdapter(jpaRepository, mapper);
+    }
 
     @Bean
     public GuardarProductoPort guardarProductoPort(ProductoRepositoryPort repositoryPort){

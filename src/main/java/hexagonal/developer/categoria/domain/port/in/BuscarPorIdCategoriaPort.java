@@ -2,7 +2,7 @@ package hexagonal.developer.categoria.domain.port.in;
 
 import hexagonal.developer.categoria.domain.model.Categoria;
 
-public interface BuscarCategoriaPort {
+public interface BuscarPorIdCategoriaPort {
     Categoria buscarPorId(Long id);
 
 
