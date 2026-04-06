@@ -32,6 +32,7 @@ public class UsuarioUpdateRequest {
     private RolesUsuario rol;
 
     private Boolean usuarioEstado;
+    private Boolean activo;
 
 
 }

@@ -50,4 +50,9 @@ public class UsuarioBeanConfig {
     public EliminarIUsuarioPort eliminarIUsuarioPort(UsuarioRepositoryPort usuarioRepositoryPort){
         return new EliminarUsuarioUseCase(usuarioRepositoryPort);
     }
+    @Bean
+    public EstadoUsuarioPort estadoUsuarioPort(UsuarioRepositoryPort usuarioRepositoryPort){
+        return new EstadoUsuarioUseCase(usuarioRepositoryPort);
+    }
+
 }

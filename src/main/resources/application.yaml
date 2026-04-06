@@ -16,3 +16,11 @@ spring:
 
 server:
   port: 8080
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION}

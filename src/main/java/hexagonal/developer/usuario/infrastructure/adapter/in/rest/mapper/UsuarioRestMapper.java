@@ -38,6 +38,7 @@ public class UsuarioRestMapper {
                 .apellidoUsuario(usuario.getApellidoUsuario())
                 .rolUsuario(usuario.getRolUsuario())
                 .usuarioEstado(usuario.getUsuarioEstado())
+                .activo(usuario.getActivo())
                 .auditoriaFechaCreacion(usuario.getAuditoriasFechaCreacion())
                 .build();
     }

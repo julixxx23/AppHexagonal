@@ -1,21 +1,18 @@
 package hexagonal.developer.usuario.infrastructure.adapter.out.persistence.entity;
 
+import hexagonal.developer.shared.infrastructure.persistence.AuditoriaBaseEntity;
 import hexagonal.developer.usuario.domain.model.RolesUsuario;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
+import lombok.Setter;
 
 @Entity
 @Table(name = "usuarios")
 @Getter
-@Builder
-@AllArgsConstructor
+@Setter
 @NoArgsConstructor
-public class UsuarioEntity {
+public class UsuarioEntity extends AuditoriaBaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +22,7 @@ public class UsuarioEntity {
     @Column(name = "usuario_usuario", nullable = false, length = 20)
     private String usuarioUsuario;
 
-    @Column(name  = "nombre_usuario", nullable = false, length = 150)
+    @Column(name = "nombre_usuario", nullable = false, length = 150)
     private String nombreUsuario;
 
     @Column(name = "apellido_usuario", nullable = false, length = 150)
@@ -38,9 +35,9 @@ public class UsuarioEntity {
     @Column(name = "rol_usuario", nullable = false, length = 10)
     private RolesUsuario rolUsuario;
 
-    @Column(name = "usuario_estado")
+    @Column(name = "usuario_estado", nullable = false)
     private Boolean usuarioEstado;
 
-    @Column(name = "auditoria_fecha_creacion",nullable = false,updatable = false)
-    private LocalDateTime auditoriaFechaCreacion;
+    @Column(name = "activo")
+    private Boolean activo = true;
 }

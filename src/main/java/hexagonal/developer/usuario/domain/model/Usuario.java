@@ -19,6 +19,9 @@ public class Usuario {
     private String apellidoUsuario;
     private String contrasenaHash;
     private String rolUsuario;
-    private Boolean usuarioEstado;
+    @Builder.Default
+    private Boolean usuarioEstado = true;
+    @Builder.Default
+    private Boolean activo = true;
     private LocalDateTime auditoriasFechaCreacion;
 }

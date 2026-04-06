@@ -1,21 +1,22 @@
 package hexagonal.developer.categoria.infrastructure.adapter.out.persistence.entity;
 
+import hexagonal.developer.shared.infrastructure.persistence.AuditoriaBaseEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "categorias")
 @Getter
-@Builder
-@AllArgsConstructor
+@Setter
 @NoArgsConstructor
 public class CategoriaEntity {
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
     private Long id;
 

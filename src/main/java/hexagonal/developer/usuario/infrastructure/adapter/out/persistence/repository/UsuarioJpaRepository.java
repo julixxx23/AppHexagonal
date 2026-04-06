@@ -1,7 +1,5 @@
 package hexagonal.developer.usuario.infrastructure.adapter.out.persistence.repository;
 
-import hexagonal.developer.producto.infrastructure.adapter.out.persistence.entity.ProductoEntity;
-import hexagonal.developer.usuario.domain.model.Usuario;
 import hexagonal.developer.usuario.infrastructure.adapter.out.persistence.entity.UsuarioEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,7 +13,7 @@ public interface UsuarioJpaRepository extends JpaRepository<UsuarioEntity, Long>
 
     Optional<UsuarioEntity> findByUsuarioUsuario(String usuarioUsuario);
 
-    boolean existsByNombreUsuario(String nombreUsuario);
+    boolean existsByUsuarioUsuario(String usuarioUsuario);
 
-    boolean existsByNombreUsuarioAndIdUsuarioNot(String nombreUsuario, Long idUsuario);
+    boolean existsByUsuarioUsuarioAndIdUsuarioNot(String usuarioUsuario, Long idUsuario);
 }

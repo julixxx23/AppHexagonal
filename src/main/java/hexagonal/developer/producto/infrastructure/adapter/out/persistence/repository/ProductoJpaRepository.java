@@ -5,8 +5,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductoJpaRepository extends JpaRepository<ProductoEntity, Long>{
-    boolean existsByNombre(String nombre);
+public interface ProductoJpaRepository extends JpaRepository<ProductoEntity, Long> {
+
+    boolean existsByNombreIgnoreCase(String nombre);
 
     boolean existsByNombreIgnoreCaseAndIdProductoNot(String nombre, Long idProducto);
 
