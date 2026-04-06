@@ -7,7 +7,7 @@ import hexagonal.developer.producto.domain.port.out.ProductoRepositoryPort;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class ListarCategoriaUseCase implements ListarProductosPort {
+public class ListarProductoUseCase implements ListarProductosPort {
 
     private final ProductoRepositoryPort productoRepositoryPort;
 

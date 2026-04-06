@@ -3,6 +3,7 @@ package hexagonal.developer.usuario.infrastructure.adapter.in.rest.dto;
 
 import hexagonal.developer.usuario.domain.model.RolesUsuario;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,7 +30,7 @@ public class UsuarioCreateRequest {
     @Size(min = 8, max = 10, message = "El maximo de caracteres de la contraseña es de 20")
     private String contrasenaHash;
 
-    @NotBlank(message = "El rol es obligatorio")
+    @NotNull(message = "El rol es obligatorio")
     private RolesUsuario rol;
 
 

@@ -19,24 +19,31 @@ public class UsuarioJpaAdapter implements UsuarioRepositoryPort {
     private final UsuarioPersistenceMapper mapper;
 
     @Override
-    public Usuario guardar(Usuario usuario){
+    public Usuario guardar(Usuario usuario) {
         return mapper.toDomain(usuarioJpaRepository.save(mapper.toEntity(usuario)));
     }
 
     @Override
-    public Usuario actualizar(Long id, Usuario usuario){
+    public Usuario actualizar(Long id, Usuario usuario) {
         return mapper.toDomain(usuarioJpaRepository.save(mapper.toEntity(usuario)));
     }
+    @Override
+    public Usuario estado(Long id, Boolean estado){
+        UsuarioEntity entity = usuarioJpaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado por id"));
+        entity.setActivo(estado);
+        return mapper.toDomain(usuarioJpaRepository.save(entity));
+    }
+
 
     @Override
-    public Optional<Usuario> buscarPorId(Long id){
+    public Optional<Usuario> buscarPorId(Long id) {
         return usuarioJpaRepository.findById(id).map(mapper::toDomain);
     }
 
     @Override
-    public PageDomain<Usuario> listarTodos(int pagina, int tamanio){
+    public PageDomain<Usuario> listarTodos(int pagina, int tamanio) {
         Page<UsuarioEntity> entityPage = usuarioJpaRepository.findAll(PageRequest.of(pagina, tamanio));
-
         Page<Usuario> page = entityPage.map(mapper::toDomain);
         return new PageDomain<>(
                 page.getContent(),
@@ -45,8 +52,9 @@ public class UsuarioJpaAdapter implements UsuarioRepositoryPort {
                 page.getTotalElements()
         );
     }
+
     @Override
-    public PageDomain<Usuario> buscarPorTexto(String texto, int pagina, int tamanio){
+    public PageDomain<Usuario> buscarPorTexto(String texto, int pagina, int tamanio) {
         Page<UsuarioEntity> entityPage = usuarioJpaRepository
                 .findByNombreUsuarioContainingIgnoreCase(texto, PageRequest.of(pagina, tamanio));
         Page<Usuario> page = entityPage.map(mapper::toDomain);
@@ -57,19 +65,19 @@ public class UsuarioJpaAdapter implements UsuarioRepositoryPort {
                 page.getTotalElements()
         );
     }
+
     @Override
     public void eliminar(Long id) {
         usuarioJpaRepository.deleteById(id);
     }
 
     @Override
-    public boolean existePorNombre(String nombre) {
-        return usuarioJpaRepository.existsByNombreUsuario(nombre);
+    public boolean existePorUsuarioUsuario(String usuarioUsuario) {
+        return usuarioJpaRepository.existsByUsuarioUsuario(usuarioUsuario); // 👈
     }
 
     @Override
-    public boolean existePorNombreExcluyendoId(String nombre, Long id) {
-        return usuarioJpaRepository.existsByNombreUsuarioAndIdUsuarioNot(nombre, id);
+    public boolean existePorUsuarioUsuarioExcluyendoId(String usuarioUsuario, Long id) {
+        return usuarioJpaRepository.existsByUsuarioUsuarioAndIdUsuarioNot(usuarioUsuario, id);
     }
-
 }

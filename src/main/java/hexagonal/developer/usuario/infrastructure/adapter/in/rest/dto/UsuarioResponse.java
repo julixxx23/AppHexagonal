@@ -18,5 +18,6 @@ public class UsuarioResponse {
     private String apellidoUsuario;
     private String rolUsuario;
     private Boolean usuarioEstado;
+    private Boolean activo;
     private LocalDateTime auditoriaFechaCreacion;
 }

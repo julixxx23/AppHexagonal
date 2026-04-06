@@ -76,6 +76,6 @@ public class CategoriaJpaAdapter implements CategoriaRepositoryPort {
 
     @Override
     public boolean existePorNombre(String nombre) {
-        return jpaRepository.existsByNombre(nombre);
+        return jpaRepository.existsByNombreIgnoreCase(nombre); // 👈 IgnoreCase
     }
 }

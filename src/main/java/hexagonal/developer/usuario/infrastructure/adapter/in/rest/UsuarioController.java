@@ -25,6 +25,7 @@ public class UsuarioController {
     private final BuscarUsuarioPorTextoPort buscarUsuarioPorTextoPort;
     private final ListarTodosUsuariosPort listarTodosUsuariosPort;
     private final EliminarIUsuarioPort eliminarIUsuarioPort;
+    private final EstadoUsuarioPort estadoUsuarioPort;
     private final UsuarioRestMapper mapper;
 
     @GetMapping("/{id}")
@@ -79,4 +80,10 @@ public class UsuarioController {
         eliminarIUsuarioPort.eliminar(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PatchMapping("/{id}/estado")
+    public ResponseEntity<Usuario> estado(@PathVariable Long id, @RequestParam Boolean estado) {
+        return ResponseEntity.ok(estadoUsuarioPort.estado(id, estado));
+    }
+
 }

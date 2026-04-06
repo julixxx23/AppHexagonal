@@ -10,8 +10,9 @@ public interface UsuarioRepositoryPort {
     Usuario actualizar(Long id, Usuario usuario);
     PageDomain<Usuario> listarTodos(int pagina, int tamanio);
     PageDomain<Usuario> buscarPorTexto(String texto, int pagina, int tamanio);
-    Optional<Usuario>buscarPorId(Long id);
+    Optional<Usuario> buscarPorId(Long id);
     void eliminar(Long id);
-    boolean existePorNombre(String nombre);
-    boolean existePorNombreExcluyendoId(String nombre, Long id);
+    Usuario estado(Long id, Boolean estado);
+    boolean existePorUsuarioUsuario(String usuarioUsuario);
+    boolean existePorUsuarioUsuarioExcluyendoId(String usuarioUsuario, Long id);
 }

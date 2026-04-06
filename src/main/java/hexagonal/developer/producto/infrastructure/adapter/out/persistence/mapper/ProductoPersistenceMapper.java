@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductoPersistenceMapper {
 
-    public Producto toDomain(ProductoEntity entity){
+    public Producto toDomain(ProductoEntity entity) {
         Categoria categoria = Categoria.builder()
                 .id(entity.getCategoria().getId())
                 .nombre(entity.getCategoria().getNombre())
@@ -25,25 +25,23 @@ public class ProductoPersistenceMapper {
                 .precio(entity.getPrecio())
                 .stock(entity.getStock())
                 .activo(entity.getActivo())
-                .fechaCreacion(entity.getFechaCreacion())
+                .fechaCreacion(entity.getCategoria().getFechaCreacion())
                 .categoria(categoria)
                 .build();
     }
 
-    public ProductoEntity toEntity(Producto producto){
-        CategoriaEntity categoriaEntity = CategoriaEntity.builder()
-                .id(producto.getCategoria().getId())
-                .build();
+    public ProductoEntity toEntity(Producto producto) {
+        CategoriaEntity categoriaEntity = new CategoriaEntity();
+        categoriaEntity.setId(producto.getCategoria().getId());
 
-        return ProductoEntity.builder()
-                .idProducto(producto.getIdProducto())
-                .nombre(producto.getNombre())
-                .descripcion(producto.getDescripcion())
-                .precio(producto.getPrecio())
-                .stock(producto.getStock())
-                .activo(producto.getActivo())
-                .fechaCreacion(producto.getFechaCreacion())
-                .categoria(categoriaEntity)
-                .build();
+        ProductoEntity entity = new ProductoEntity();
+        entity.setIdProducto(producto.getIdProducto());
+        entity.setNombre(producto.getNombre());
+        entity.setDescripcion(producto.getDescripcion());
+        entity.setPrecio(producto.getPrecio());
+        entity.setStock(producto.getStock());
+        entity.setActivo(producto.getActivo());
+        entity.setCategoria(categoriaEntity);
+        return entity;
     }
 }

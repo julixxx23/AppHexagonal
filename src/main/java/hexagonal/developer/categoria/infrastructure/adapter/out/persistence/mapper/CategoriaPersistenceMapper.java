@@ -7,24 +7,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class CategoriaPersistenceMapper {
 
-    public Categoria toDomain(CategoriaEntity categoriaEntity){
+    public Categoria toDomain(CategoriaEntity entity) {
         return Categoria.builder()
-                .id(categoriaEntity.getId())
-                .nombre(categoriaEntity.getNombre())
-                .descripcion(categoriaEntity.getDescripcion())
-                .activo(categoriaEntity.getActivo())
-                .fechaCreacion(categoriaEntity.getFechaCreacion())
+                .id(entity.getId())
+                .nombre(entity.getNombre())
+                .descripcion(entity.getDescripcion())
+                .activo(entity.getActivo())
+                .fechaCreacion(entity.getFechaCreacion())
                 .build();
     }
 
-    public CategoriaEntity toEntity(Categoria categoria){
-        return CategoriaEntity.builder()
-                .id(categoria.getId())
-                .nombre(categoria.getNombre())
-                .descripcion(categoria.getDescripcion())
-                .activo(categoria.getActivo())
-                .fechaCreacion(categoria.getFechaCreacion())
-                .build();
-
+    public CategoriaEntity toEntity(Categoria categoria) {
+        CategoriaEntity entity = new CategoriaEntity();
+        entity.setId(categoria.getId());
+        entity.setNombre(categoria.getNombre());
+        entity.setDescripcion(categoria.getDescripcion());
+        entity.setActivo(categoria.getActivo());
+        return entity;
     }
 }
