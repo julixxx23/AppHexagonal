@@ -63,7 +63,6 @@ public class ProductoJpaAdapter implements ProductoRepositoryPort {
                 page.getTotalElements()
         );
 
-
     }
 
     @Override

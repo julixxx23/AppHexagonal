@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "productos")
@@ -34,6 +35,9 @@ public class ProductoEntity{
 
     @Column(name = "activo", nullable = false)
     private Boolean activo;
+
+    @Column(name = "fecha_creacion", nullable = false,updatable = false)
+    private LocalDateTime fechaCreacion;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_categoria", nullable = false)

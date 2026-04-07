@@ -1,6 +1,7 @@
 package hexagonal.developer.shared.infrastructure;
 
 import hexagonal.developer.categoria.domain.exception.CategoriaYaExisteException;
+import hexagonal.developer.pedido.dominio.exception.UsuarioNoActivoException;
 import hexagonal.developer.producto.domain.exception.ProductoYaExisteException;
 import hexagonal.developer.shared.domain.exception.NotFoundException;
 import hexagonal.developer.usuario.domain.exception.UsuarioNoEncontradoException;
@@ -93,4 +94,16 @@ public class GlobalExceptionHandler {
                 "message", ex.getMessage()
         ));
     }
+
+    @ExceptionHandler(ProductoYaExisteException.class)
+    public ResponseEntity<?> handlePedidoYaExiste(UsuarioNoActivoException ex){
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of(
+                "timestamp", LocalDateTime.now(),
+                "status", 409,
+                "error", "Conflict",
+                "message", ex.getMessage()
+        ));
+    }
+
+
 }
