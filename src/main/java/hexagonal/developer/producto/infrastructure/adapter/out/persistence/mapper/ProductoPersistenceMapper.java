@@ -25,7 +25,7 @@ public class ProductoPersistenceMapper {
                 .precio(entity.getPrecio())
                 .stock(entity.getStock())
                 .activo(entity.getActivo())
-                .fechaCreacion(entity.getCategoria().getFechaCreacion())
+                .fechaCreacion(entity.getFechaCreacion())
                 .categoria(categoria)
                 .build();
     }
