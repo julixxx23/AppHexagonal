@@ -7,6 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PedidoJpaRepository extends JpaRepository<PedidoEntity, Long> {
-    boolean existeYEstaActivo(Pedido pedido);
+    boolean existsByIdPedidoAndActivoTrue(Long idPedido);
     Page<PedidoEntity> findByEstadoPedidoContainingIgnoreCase(String texto, Pageable pageable);
 }

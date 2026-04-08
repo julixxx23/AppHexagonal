@@ -1,6 +1,8 @@
 package hexagonal.developer.shared.infrastructure;
 
 import hexagonal.developer.categoria.domain.exception.CategoriaYaExisteException;
+import hexagonal.developer.detallepedido.domain.exception.DetalleYaExisteException;
+import hexagonal.developer.detallepedido.domain.exception.PedidoNoModificableException;
 import hexagonal.developer.pedido.dominio.exception.UsuarioNoActivoException;
 import hexagonal.developer.producto.domain.exception.ProductoYaExisteException;
 import hexagonal.developer.shared.domain.exception.NotFoundException;
@@ -95,8 +97,8 @@ public class GlobalExceptionHandler {
         ));
     }
 
-    @ExceptionHandler(ProductoYaExisteException.class)
-    public ResponseEntity<?> handlePedidoYaExiste(UsuarioNoActivoException ex){
+    @ExceptionHandler(UsuarioNoActivoException.class)
+    public ResponseEntity<?> handleUsuarioNoActivo(UsuarioNoActivoException ex){
         return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of(
                 "timestamp", LocalDateTime.now(),
                 "status", 409,
@@ -105,5 +107,25 @@ public class GlobalExceptionHandler {
         ));
     }
 
+    @ExceptionHandler(DetalleYaExisteException.class)
+    public ResponseEntity<?> handleYaExiste(DetalleYaExisteException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of(
+                "timestamp", LocalDateTime.now(),
+                "status", 409,
+                "error", "Conflict",
+                "message", ex.getMessage()
+        ));
 
+    }
+
+    @ExceptionHandler(PedidoNoModificableException.class)
+    public ResponseEntity<?> handleNoModificable(PedidoNoModificableException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of(
+                "timestamp", LocalDateTime.now(),
+                "status", 409,
+                "error", "Conflict",
+                "message", ex.getMessage()
+        ));
+
+    }
 }

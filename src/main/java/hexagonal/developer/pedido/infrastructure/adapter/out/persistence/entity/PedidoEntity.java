@@ -25,6 +25,7 @@ public class PedidoEntity {
     @Column(name = "fecha_pedido", nullable = false, updatable = false)
     private LocalDateTime fechaPedido;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "estado_pedido", nullable = false)
     private EstadoPedido estadoPedido;
 

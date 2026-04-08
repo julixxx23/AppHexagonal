@@ -82,6 +82,6 @@ public class PedidoJpaAdapter implements PedidoRepositoryPort {
 
     @Override
     public boolean existeYEstaActivo(Pedido pedido){
-        return pedidoJpaRepository.existeYEstaActivo(pedido);
+        return pedidoJpaRepository.existsByIdPedidoAndActivoTrue(pedido.getIdPedido());
     }
 }
