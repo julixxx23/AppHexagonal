@@ -1,8 +1,7 @@
 package hexagonal.developer.shared.infrastructure;
-
+import hexagonal.developer.pedido.dominio.exception.PedidoNoModificableException;
 import hexagonal.developer.categoria.domain.exception.CategoriaYaExisteException;
 import hexagonal.developer.detallepedido.domain.exception.DetalleYaExisteException;
-import hexagonal.developer.detallepedido.domain.exception.PedidoNoModificableException;
 import hexagonal.developer.pedido.dominio.exception.UsuarioNoActivoException;
 import hexagonal.developer.producto.domain.exception.ProductoYaExisteException;
 import hexagonal.developer.shared.domain.exception.NotFoundException;

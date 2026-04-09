@@ -1,10 +1,12 @@
 package hexagonal.developer.pedido.dominio.model;
 
+import hexagonal.developer.pedido.dominio.exception.PedidoNoModificableException;
 import hexagonal.developer.usuario.domain.model.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 
 import java.time.LocalDateTime;
 
@@ -40,7 +42,7 @@ public class Pedido {
 
     public void cancelar() {
         if (estadoPedido == EstadoPedido.ENTREGADO) {
-            throw new IllegalStateException(
+            throw new PedidoNoModificableException(
                     "Cannot cancel a delivered order"
             );
         }
@@ -49,7 +51,7 @@ public class Pedido {
 
     public void validarEditable() {
         if (this.estadoPedido != EstadoPedido.PENDIENTE) {
-            throw new IllegalStateException("Order can only be modified in PENDING state");
+            throw new PedidoNoModificableException("Order can only be modified in PENDING state");
         }
     }
 }

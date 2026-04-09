@@ -2,12 +2,14 @@ package hexagonal.developer.detallepedido.aplication;
 
 import hexagonal.developer.detallepedido.domain.exception.DetalleYaExisteException;
 import hexagonal.developer.detallepedido.domain.model.DetallePedido;
+import hexagonal.developer.detallepedido.domain.port.in.GuardarDetallePort;
 import hexagonal.developer.detallepedido.domain.port.out.DetalleRepositoryPort;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class GuardarDetallePort implements hexagonal.developer.detallepedido.domain.port.in.GuardarDetallePort{
+public class GuardarDetalleUseCase implements GuardarDetallePort {
     private final DetalleRepositoryPort detalleRepositoryPort;
+
     @Override
     public DetallePedido guardar(DetallePedido detallePedido){
         detallePedido.getPedido().validarEditable();
