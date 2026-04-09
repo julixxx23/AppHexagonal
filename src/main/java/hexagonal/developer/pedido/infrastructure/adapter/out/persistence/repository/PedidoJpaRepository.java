@@ -1,6 +1,5 @@
 package hexagonal.developer.pedido.infrastructure.adapter.out.persistence.repository;
 
-import hexagonal.developer.pedido.dominio.model.Pedido;
 import hexagonal.developer.pedido.infrastructure.adapter.out.persistence.entity.PedidoEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
