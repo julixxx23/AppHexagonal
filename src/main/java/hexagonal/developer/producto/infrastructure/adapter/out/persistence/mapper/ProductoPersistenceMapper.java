@@ -11,7 +11,7 @@ public class ProductoPersistenceMapper {
 
     public Producto toDomain(ProductoEntity entity) {
         Categoria categoria = Categoria.builder()
-                .id(entity.getCategoria().getId())
+                .idCategoria(entity.getCategoria().getIdCategoria())
                 .nombre(entity.getCategoria().getNombre())
                 .descripcion(entity.getCategoria().getDescripcion())
                 .activo(entity.getCategoria().getActivo())
@@ -32,7 +32,7 @@ public class ProductoPersistenceMapper {
 
     public ProductoEntity toEntity(Producto producto) {
         CategoriaEntity categoriaEntity = new CategoriaEntity();
-        categoriaEntity.setId(producto.getCategoria().getId());
+        categoriaEntity.setIdCategoria(producto.getCategoria().getIdCategoria());
 
         ProductoEntity entity = new ProductoEntity();
         entity.setIdProducto(producto.getIdProducto());

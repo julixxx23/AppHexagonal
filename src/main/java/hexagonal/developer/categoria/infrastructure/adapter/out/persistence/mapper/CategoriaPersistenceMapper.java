@@ -9,7 +9,7 @@ public class CategoriaPersistenceMapper {
 
     public Categoria toDomain(CategoriaEntity entity) {
         return Categoria.builder()
-                .id(entity.getId())
+                .idCategoria(entity.getIdCategoria())
                 .nombre(entity.getNombre())
                 .descripcion(entity.getDescripcion())
                 .activo(entity.getActivo())
@@ -19,7 +19,7 @@ public class CategoriaPersistenceMapper {
 
     public CategoriaEntity toEntity(Categoria categoria) {
         CategoriaEntity entity = new CategoriaEntity();
-        entity.setId(categoria.getId());
+        entity.setIdCategoria(categoria.getIdCategoria());
         entity.setNombre(categoria.getNombre());
         entity.setDescripcion(categoria.getDescripcion());
         entity.setActivo(categoria.getActivo());

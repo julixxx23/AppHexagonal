@@ -19,7 +19,7 @@ public class ProductoRestMapper {
                 .stock(request.getStock())
                 .activo(request.getActivo())
                 .categoria(Categoria.builder()
-                        .id(request.getCategoriaId())
+                        .idCategoria(request.getCategoriaId())
                         .build())
                 .build();
     }
@@ -32,7 +32,7 @@ public class ProductoRestMapper {
                 .stock(request.getStock())
                 .activo(request.getActivo())
                 .categoria(Categoria.builder()
-                        .id(request.getCategoriaId())
+                        .idCategoria(request.getCategoriaId())
                         .build())
                 .build();
     }
@@ -47,7 +47,7 @@ public class ProductoRestMapper {
                 .activo(producto.getActivo())
                 .fechaCreacion(producto.getFechaCreacion())
                 .categoria(CategoriaSimpleResponse.builder()
-                        .id(producto.getCategoria().getId())
+                        .id(producto.getCategoria().getIdCategoria())
                         .nombre(producto.getCategoria().getNombre())
                         .build())
                 .build();

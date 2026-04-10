@@ -27,7 +27,7 @@ public class CategoriaRestMapper {
 
     public CategoriaResponse toResponse(Categoria categoria) {
         return CategoriaResponse.builder()
-                .id(categoria.getId())
+                .id(categoria.getIdCategoria())
                 .nombre(categoria.getNombre())
                 .descripcion(categoria.getDescripcion())
                 .activo(categoria.getActivo())
