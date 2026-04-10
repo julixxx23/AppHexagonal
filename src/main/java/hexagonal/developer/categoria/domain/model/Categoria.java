@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Categoria {
 
-    private Long id;
+    private Long idCategoria;
     private String nombre;
     private String descripcion;
     private Boolean activo;

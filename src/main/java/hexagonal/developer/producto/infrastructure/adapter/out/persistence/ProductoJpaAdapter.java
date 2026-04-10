@@ -63,7 +63,6 @@ public class ProductoJpaAdapter implements ProductoRepositoryPort {
                 page.getTotalElements()
         );
 
-
     }
 
     @Override
@@ -73,9 +72,8 @@ public class ProductoJpaAdapter implements ProductoRepositoryPort {
 
     @Override
     public boolean existePorNombre(String nombre) {
-        return productoJpaRepository.existsByNombre(nombre);
+        return productoJpaRepository.existsByNombreIgnoreCase(nombre);
     }
-
     @Override
     public boolean existePorNombreExcluyendoId(String nombre, Long id) {
         return productoJpaRepository.existsByNombreIgnoreCaseAndIdProductoNot(nombre, id);

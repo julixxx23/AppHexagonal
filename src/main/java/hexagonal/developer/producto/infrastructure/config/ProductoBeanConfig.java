@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ProductoBeanConfig {
 
-
     @Bean
     public ProductoRepositoryPort productoRepositoryPort(
             ProductoJpaRepository jpaRepository,
@@ -32,7 +31,7 @@ public class ProductoBeanConfig {
 
     @Bean
     public ListarProductosPort listarProductosPort(ProductoRepositoryPort productoRepositoryPort){
-        return new ListarCategoriaUseCase(productoRepositoryPort);
+        return new ListarProductoUseCase(productoRepositoryPort);
     }
 
     @Bean

@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductoPersistenceMapper {
 
-    public Producto toDomain(ProductoEntity entity){
+    public Producto toDomain(ProductoEntity entity) {
         Categoria categoria = Categoria.builder()
-                .id(entity.getCategoria().getId())
+                .idCategoria(entity.getCategoria().getIdCategoria())
                 .nombre(entity.getCategoria().getNombre())
                 .descripcion(entity.getCategoria().getDescripcion())
                 .activo(entity.getCategoria().getActivo())
@@ -30,20 +30,18 @@ public class ProductoPersistenceMapper {
                 .build();
     }
 
-    public ProductoEntity toEntity(Producto producto){
-        CategoriaEntity categoriaEntity = CategoriaEntity.builder()
-                .id(producto.getCategoria().getId())
-                .build();
+    public ProductoEntity toEntity(Producto producto) {
+        CategoriaEntity categoriaEntity = new CategoriaEntity();
+        categoriaEntity.setIdCategoria(producto.getCategoria().getIdCategoria());
 
-        return ProductoEntity.builder()
-                .idProducto(producto.getIdProducto())
-                .nombre(producto.getNombre())
-                .descripcion(producto.getDescripcion())
-                .precio(producto.getPrecio())
-                .stock(producto.getStock())
-                .activo(producto.getActivo())
-                .fechaCreacion(producto.getFechaCreacion())
-                .categoria(categoriaEntity)
-                .build();
+        ProductoEntity entity = new ProductoEntity();
+        entity.setIdProducto(producto.getIdProducto());
+        entity.setNombre(producto.getNombre());
+        entity.setDescripcion(producto.getDescripcion());
+        entity.setPrecio(producto.getPrecio());
+        entity.setStock(producto.getStock());
+        entity.setActivo(producto.getActivo());
+        entity.setCategoria(categoriaEntity);
+        return entity;
     }
 }
