@@ -12,7 +12,7 @@ public class ActualizarDetalleUseCase implements ActualizarDetallePort {
 
     @Override
     public DetallePedido actualizar(Long id, DetallePedido detallePedido){
-        DetallePedido validarGuardado = detalleRepositoryPort.buscarPorId(id)
+        detalleRepositoryPort.buscarPorId(id)
                 .orElseThrow(() -> new DetallePedidoNotFoundException(id));
         return detalleRepositoryPort.actualizar(id, detallePedido);
 
