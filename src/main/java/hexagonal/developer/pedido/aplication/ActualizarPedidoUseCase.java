@@ -17,6 +17,6 @@ public class ActualizarPedidoUseCase implements ActualizarPedidoPort {
 
         pedidoExistente.validarEditable();
 
-        return pedidoRepositoryPort.guardar(pedido);
+        return pedidoRepositoryPort.actualizar(id, pedido);
     }
 }
