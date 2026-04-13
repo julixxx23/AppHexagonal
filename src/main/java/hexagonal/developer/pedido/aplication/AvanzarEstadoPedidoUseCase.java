@@ -17,6 +17,6 @@ public class AvanzarEstadoPedidoUseCase implements AvanzarEstadoPedidoPort {
 
         pedido.avanzarEstado();
 
-        return pedidoRepositoryPort.guardar(pedido);
+        return pedidoRepositoryPort.avanzarEstado(pedido);
     }
 }

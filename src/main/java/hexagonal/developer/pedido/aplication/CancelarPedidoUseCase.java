@@ -17,6 +17,6 @@ public class CancelarPedidoUseCase implements CancelarPedidoPort {
 
         pedido.cancelar();
 
-        return pedidoRepositoryPort.guardar(pedido);
+        return pedidoRepositoryPort.cancelar(pedido);
     }
 }

@@ -9,8 +9,8 @@ public interface PedidoRepositoryPort {
     Pedido guardar (Pedido pedido);
     Pedido actualizar(Long id, Pedido pedido);
     Optional<Pedido> buscarPorId(Long id);
-    Optional<Pedido> avanzarPedido(Long id);
-    Optional<Pedido> cancelar(Long id);
+    Pedido avanzarEstado(Pedido pedido);
+    Pedido cancelar(Pedido pedido);
     PageDomain<Pedido> buscarPorTexto(String texto, int pagina, int tamanio);
     PageDomain<Pedido> listar(int pagina, int tamanio);
     boolean existeYEstaActivo(Pedido pedido);

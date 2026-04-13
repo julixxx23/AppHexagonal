@@ -35,21 +35,14 @@ public class PedidoJpaAdapter implements PedidoRepositoryPort {
     }
 
     @Override
-    public Optional<Pedido> avanzarPedido(Long id){
-        return pedidoJpaRepository.findById(id)
-                .map(entity -> {
-                    entity.setEstadoPedido(EstadoPedido.EN_PROCESO);
-                    return mapper.toDomain(pedidoJpaRepository.save(entity));
-                });
+    public Pedido avanzarEstado(Pedido pedido){
+        return mapper.toDomain(pedidoJpaRepository.save(mapper.toEntity(pedido)));
+
     }
 
     @Override
-    public Optional<Pedido> cancelar(Long id){
-        return pedidoJpaRepository.findById(id)
-                .map(entity -> {
-                    entity.setEstadoPedido(EstadoPedido.CANCELADO);
-                    return mapper.toDomain(pedidoJpaRepository.save(entity));
-                });
+    public Pedido cancelar(Pedido pedido){
+        return mapper.toDomain(pedidoJpaRepository.save(mapper.toEntity(pedido)));
     }
 
     @Override
