@@ -30,6 +30,7 @@ public class CancelarPedidoUseCaseTest {
     void cancelarCorrecto(){
 
         Pedido pendiente = PedidoFixture.unPedidoPendiente();
+        System.out.println(pendiente.getEstadoPedido());
 
         when(pedidoRepositoryPort.buscarPorId(1L)).thenReturn(Optional.of(pendiente));
         when(pedidoRepositoryPort.cancelar(any(Pedido.class))).thenReturn(pendiente);
