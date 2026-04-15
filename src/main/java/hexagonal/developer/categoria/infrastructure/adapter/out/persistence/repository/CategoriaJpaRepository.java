@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CategoriaJpaRepository extends JpaRepository<CategoriaEntity, Long> {
     boolean existsByNombreIgnoreCase(String nombre);
-    boolean existsByNombreIgnoreCaseAndIdNot(String nombre, Long id);
+    boolean existsByNombreIgnoreCaseAndIdCategoriaIsNot(String nombre, Long idCategoria);
     Page<CategoriaEntity> findByNombreContainingIgnoreCase(String nombre, Pageable pageable);
 }
