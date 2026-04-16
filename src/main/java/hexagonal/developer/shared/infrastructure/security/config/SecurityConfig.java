@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers("/actuator/health").permitAll()  // <- esta
                         .requestMatchers(HttpMethod.POST, "/api/v1/usuarios").hasAuthority("ROLE_ADMIN")
                         .anyRequest().authenticated()
                 )

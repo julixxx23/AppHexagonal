@@ -1,8 +1,31 @@
 services:
   app:
-    image: jo460/apphexagonal:latest
+    image: julixxx23/apphexagonal:latest
     ports:
       - "8080:8080"
     env_file:
       - .env
     restart: unless-stopped
+    depends_on:
+      oracle-db:
+        condition: service_healthy
+
+  oracle-db:
+    image: gvenzl/oracle-free
+    environment:
+      ORACLE_PASSWORD: Hotel123
+      ORACLE_DATABASE: FREEPDB1
+    ports:
+      - "1521:1521"
+    restart: unless-stopped
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+    healthcheck:
+      test: ["CMD-SHELL", "healthcheck.sh"]
+      interval: 20s
+      timeout: 10s
+      retries: 10
+      start_period: 90s
+
+volumes:
+  oracle-data:
