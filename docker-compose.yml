@@ -1,6 +1,6 @@
 services:
   app:
-    build: .
+    image: jo460/apphexagonal:latest
     ports:
       - "8080:8080"
     env_file:
