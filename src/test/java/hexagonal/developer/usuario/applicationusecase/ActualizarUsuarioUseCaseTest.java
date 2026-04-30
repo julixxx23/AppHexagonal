@@ -47,6 +47,7 @@ public class ActualizarUsuarioUseCaseTest {
         assertEquals(usuarioNuevo.getIdUsuario(), resultado.getIdUsuario());
         assertEquals(usuarioNuevo.getUsuarioUsuario(), resultado.getUsuarioUsuario());
 
+        // act
         verify(usuarioRepositoryPort, times(1)).buscarPorId(1L);
         verify(usuarioRepositoryPort, times(1)).existePorUsuarioUsuarioExcluyendoId(usuario.getUsuarioUsuario(), 1L);
         verify(usuarioRepositoryPort, times(1)).actualizar(1L, usuario);
