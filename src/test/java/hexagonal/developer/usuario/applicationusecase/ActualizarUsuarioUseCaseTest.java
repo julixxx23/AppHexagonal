@@ -33,6 +33,7 @@ public class ActualizarUsuarioUseCaseTest {
     @DisplayName("Deberia actualizar correctamente al usuario")
     void actualizacionCorrecta() {
 
+        //Arrange
         Usuario usuario = UsuarioFixture.unUsuarioSinId();
         Usuario usuarioNuevo = UsuarioFixture.unUsuarioValido();
 
