@@ -44,6 +44,7 @@ public class ActualizarUsuarioUseCaseTest {
 
         Usuario resultado = actualizarUsuarioUseCase.actualizar(1L, usuario);
 
+        //asrt
         assertNotNull(resultado);
         assertEquals(usuarioNuevo.getIdUsuario(), resultado.getIdUsuario());
         assertEquals(usuarioNuevo.getUsuarioUsuario(), resultado.getUsuarioUsuario());
