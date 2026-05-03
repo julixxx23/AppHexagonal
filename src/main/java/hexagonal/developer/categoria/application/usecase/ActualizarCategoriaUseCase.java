@@ -12,6 +12,7 @@ public class ActualizarCategoriaUseCase implements ActualizarCategoriaPort{
 
     private final CategoriaRepositoryPort categoriaRepositoryPort;
 
+    //transcribe metodo
     @Override
     public Categoria actualizar(Long id, Categoria categoria){
         categoriaRepositoryPort.buscarPorId(id)
