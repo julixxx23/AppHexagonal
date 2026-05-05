@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+//java puro
 public class DetallePedido {
     private Long idDetalle;
     private Integer cantidad;
