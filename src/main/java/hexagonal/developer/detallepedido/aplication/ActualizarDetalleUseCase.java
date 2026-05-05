@@ -11,6 +11,7 @@ public class ActualizarDetalleUseCase implements ActualizarDetallePort {
     private final DetalleRepositoryPort detalleRepositoryPort;
 
     @Override
+    //Logica
     public DetallePedido actualizar(Long id, DetallePedido detallePedido){
         detalleRepositoryPort.buscarPorId(id)
                 .orElseThrow(() -> new DetallePedidoNotFoundException(id));
