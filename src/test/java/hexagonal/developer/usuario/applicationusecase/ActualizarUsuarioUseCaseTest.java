@@ -38,6 +38,7 @@ public class ActualizarUsuarioUseCaseTest {
         Usuario usuario = UsuarioFixture.unUsuarioSinId();
         Usuario usuarioNuevo = UsuarioFixture.unUsuarioValido();
 
+        // action y reaction
         when(usuarioRepositoryPort.buscarPorId(1L)).thenReturn(Optional.of(usuarioNuevo));
         when(usuarioRepositoryPort.existePorUsuarioUsuarioExcluyendoId(usuario.getUsuarioUsuario(), 1L))
                 .thenReturn(false);
