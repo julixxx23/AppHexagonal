@@ -47,7 +47,7 @@ class GuardarUsuarioUseCaseTest {
         verify(usuarioRepositoryPort, times(1)).existePorUsuarioUsuario(usuario.getUsuarioUsuario());
         verify(usuarioRepositoryPort, times(1)).guardar(any(Usuario.class));
     }
-
+//test
     @Test
     @DisplayName("Deberia lanzar una exception cuando ya existe un usuario con el mismo nombre")
     void lanzarException(){
