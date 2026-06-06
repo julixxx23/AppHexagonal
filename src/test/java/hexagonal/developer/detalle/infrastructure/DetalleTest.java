@@ -8,4 +8,5 @@ public class DetalleTest {
     //CI/CD
 
     //testt
+    **
 }
